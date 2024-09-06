@@ -9,3 +9,9 @@ else if (getHumanChoice === "scissors") {
     console.log("You have chosen scissors");
 }
 else console.log("Invalid input");
+
+let getComputerChoice = ["rock", "paper", "scissors"];
+function randomChoice() {
+    console.log("Computer has chosen " + getComputerChoice[(Math.floor(Math.random() * getComputerChoice.length))]);
+}
+randomChoice()
