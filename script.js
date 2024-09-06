@@ -12,6 +12,8 @@ else console.log("Invalid input");
 
 let getComputerChoice = ["rock", "paper", "scissors"];
 function randomChoice() {
-    console.log("Computer has chosen " + getComputerChoice[(Math.floor(Math.random() * getComputerChoice.length))]);
+    let computerChoice = (getComputerChoice[(Math.floor(Math.random() * getComputerChoice.length))]);
+    console.log("Computer has chosen " + computerChoice);
+    console.log(computerChoice);
 }
 randomChoice()
