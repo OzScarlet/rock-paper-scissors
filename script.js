@@ -36,8 +36,7 @@ else if (getHumanChoice === "paper" && computerChoice === "rock") {
     userPoint++
 }
 else if (getHumanChoice === "paper" && computerChoice === "paper") {
-    console.log("It's a draw.")
-    userPoint++
+    console.log("It's a draw.")  
 }
 else if (getHumanChoice === "paper" && computerChoice === "scissors") {
     console.log("Computer gets one point.")
@@ -53,7 +52,6 @@ else if (getHumanChoice === "scissors" && computerChoice === "paper") {
 }
 else if (getHumanChoice === "scissors" && computerChoice === "scissors") {
     console.log("It's a draw.")
-    userPoint++
 }
 console.log("User has " + userPoint + " points");
 console.log("Computer has " + computerPoint + " points");
