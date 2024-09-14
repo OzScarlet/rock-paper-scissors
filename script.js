@@ -1,57 +1,54 @@
-//get input from user to choose between rock, paper, or scissors and return invalid if anything else
-let getHumanChoice = prompt("Choose between rock, paper, or scissors.");
-if (getHumanChoice === "rock") {
-    console.log("You have chosen rock");
-}
-else if (getHumanChoice === "paper") {
-    console.log("You have chosen paper");
-}
-else if (getHumanChoice === "scissors") {
-    console.log("You have chosen scissors");
-}
-else console.log("Invalid input");
+const choices = ["Rock", "Paper", "Scissors"];
+let playerScore = 0;
+let computerScore = 0;
 
-//create an array for the computer to randomly choose from to make a choice
-let getComputerChoice = ["rock", "paper", "scissors"];
-let computerChoice = (getComputerChoice[(Math.floor(Math.random() * getComputerChoice.length))]);
-console.log("Computer has chosen " + computerChoice);
-// console.log(computerChoice);
+function playGame(playerChoice){
+    
+    const computerChoice = choices[Math.floor(Math.random() * 3)];
+    console.log("Computer has chosen " + computerChoice);
+    let result = "";
 
-//compare the user input to the random computer choice
-let computerPoint = 0;
-let userPoint = 0;
-if (getHumanChoice === "rock" && computerChoice === "rock") {
-    console.log("It's a draw.");
+    if(playerChoice === computerChoice){
+        result = "It's a tie.";
+        console.log(result);
+    }
+    else{
+        switch(playerChoice){
+            case 'Rock':
+                result = (computerChoice === "Scissors") ? "You win." : "You lose.";
+                console.log(result);
+                break;
+            case 'Paper':
+                result = (computerChoice === "Rock") ? "You win." : "You lose.";
+                console.log(result);
+                break;
+            case 'Scissors':
+                result = (computerChoice === "Paper") ? "You win." : "You lose.";
+                console.log(result);
+                break;
+        }
+    }
+
+    switch(result){
+        case "You win.":
+            playerScore++;
+            break;
+            
+        case "You lose.":
+            computerScore++;
+            break;
+            
+    }
+    console.log("Player currently has " + playerScore + " points.");
+    console.log("Computer currently has " + computerScore + " points.");
+
+    if (playerScore === 5){
+        alert("Game over. You win the match.");
+        location.reload();
+    }
+    else if (computerScore === 5){
+        alert("Game over. You lose the match.");
+        location.reload();
+    }
+   
 }
-else if (getHumanChoice === "rock" && computerChoice === "paper") {
-    console.log("Computer gets one point.");
-    computerPoint++
-} 
-else if (getHumanChoice === "rock" && computerChoice === "scissors") {
-    console.log("User gets one point.")
-    userPoint++
-}
-else if (getHumanChoice === "paper" && computerChoice === "rock") {
-    console.log("User gets one point.")
-    userPoint++
-}
-else if (getHumanChoice === "paper" && computerChoice === "paper") {
-    console.log("It's a draw.")  
-}
-else if (getHumanChoice === "paper" && computerChoice === "scissors") {
-    console.log("Computer gets one point.")
-    userPoint++
-}
-else if (getHumanChoice === "scissors" && computerChoice === "rock") {
-    console.log("Computer gets one point.")
-    userPoint++
-}
-else if (getHumanChoice === "scissors" && computerChoice === "paper") {
-    console.log("User gets one point.")
-    userPoint++
-}
-else if (getHumanChoice === "scissors" && computerChoice === "scissors") {
-    console.log("It's a draw.")
-}
-console.log("User has " + userPoint + " points");
-console.log("Computer has " + computerPoint + " points");
